@@ -3,6 +3,7 @@ import os
 import sys
 import time
 
+from func_timeout import func_timeout
 from redis import Redis
 
 from lib.anthropic import describe_image_via_ai
@@ -43,7 +44,7 @@ def main():
         image_base64 = encode_image_to_base64(resized_image)
 
         logging.info('Sending image to the AI for description...')
-        description = describe_image_via_ai(image_base64, ANTHROPIC_API_KEY, ANTHROPIC_MODEL, ANTHROPIC_BASE_URL, WEBCAM_LOCATION, WEBCAM_VIEW_DESCRIPTION, temp, temp_unit)
+        description = func_timeout(120, describe_image_via_ai, (image_base64, ANTHROPIC_API_KEY, ANTHROPIC_MODEL, ANTHROPIC_BASE_URL, WEBCAM_LOCATION, WEBCAM_VIEW_DESCRIPTION, temp, temp_unit))
         logging.info(f'AI wrote a {len(description)} character summary.')
 
         redis.set(REDIS_DATA_KEY, description)

@@ -4,6 +4,9 @@ _Use AI vision to summarize current weather conditions from a webcam._
 
 This uses a webcam to generate a current weather conditions summary via the Anthropic API.
 
+The entity's state is the generated summary compressed via Brotli and encoded in Base91 in order to keep the length of
+the state under the maximum of 255 characters.
+
 ### Install
 
 1. `pip install -r requirementst.txt`
@@ -21,15 +24,15 @@ This uses a webcam to generate a current weather conditions summary via the Anth
    MQTT_USERNAME="user"
    MQTT_PASSWORD="xxx"
    ```
-4. Install the systemd services.
-5. Add this to your Home Assistant MQTT config:
+3. Install the systemd services.
+4. Add this to your Home Assistant MQTT config:
    ```yaml
    - name: "Webcam Intelligent Summary"
      state_topic: "webcam-intelligence/webcam-intelligent-summary"
      unique_id: webcam_intelligent_summary
      json_attributes_topic: "webcam-intelligence/webcam-intelligent-summary/attributes"
    ```
-6. Restart Home Assistant
+5. Restart Home Assistant
 
 ### Dashboard Card
 

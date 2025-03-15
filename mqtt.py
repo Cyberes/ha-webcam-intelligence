@@ -7,6 +7,7 @@ from datetime import datetime
 import paho.mqtt.client as mqtt
 from redis import Redis
 
+from lib.compress import compress_to_base91
 from lib.consts import REDIS_DB, REDIS_DATA_KEY
 
 logging.basicConfig(level=logging.INFO)
@@ -50,7 +51,12 @@ def main():
         logging.warning('Redis has not been populated yet. Is cache.py running? Sleeping 10s...')
         time.sleep(10)
         data = redis.get(REDIS_DATA_KEY)
-    publish('webcam-intelligent-summary', datetime.now().isoformat(), attributes={'summary': data.decode('utf-8')})
+    compressed = compress_to_base91(data)
+    if len(compressed) > 255:
+        state = datetime.now().isoformat()
+    else:
+        state = compressed
+    publish('webcam-intelligent-summary', state, attributes={'summary': data.decode('utf-8')})
 
 
 if __name__ == '__main__':

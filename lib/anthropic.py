@@ -21,6 +21,7 @@ Temperature: {current_temperature} {temperature_unit}'''
         model=model,
         max_tokens=200,
         temperature=0,
+        timeout=60,
         messages=[
             {
                 "role": "user",
