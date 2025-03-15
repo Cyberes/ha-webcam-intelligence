@@ -1,0 +1,16 @@
+[Unit]
+Description=Webcam Intelligence Cache
+After=network.target
+
+[Service]
+Type=simple
+User=homeassistant
+WorkingDirectory=/srv/ha-webcam-intelligence
+EnvironmentFile=/etc/secrets/webcam-intelligence
+ExecStart=/srv/ha-webcam-intelligence/venv/bin/python /srv/ha-webcam-intelligence/cache.py
+SyslogIdentifier=webcam-intelligence-cache
+Restart=always
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target

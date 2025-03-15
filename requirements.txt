@@ -1,0 +1,7 @@
+anthropic==0.49.0
+requests==2.32.3
+opencv-python==4.11.0.86
+Pillow==11.1.0
+redis==5.2.1
+async-timeout
+paho-mqtt==1.5.0

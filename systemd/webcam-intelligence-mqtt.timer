@@ -1,0 +1,9 @@
+[Unit]
+Description=Webcam Intelligence MQTT timer
+
+[Timer]
+OnCalendar=*:0/1
+Unit=webcam-intelligence-mqtt.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Webcam Intelligence MQTT
+After=network.target webcam-intelligence-cache.service
+
+[Service]
+Type=simple
+User=homeassistant
+EnvironmentFile=/etc/secrets/webcam-intelligence
+ExecStart=/srv/ha-webcam-intelligence/venv/bin/python /srv/ha-webcam-intelligence/mqtt.py
+SyslogIdentifier=webcam-intelligence-mqtt
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
