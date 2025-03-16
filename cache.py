@@ -58,7 +58,8 @@ def main():
 
         description = func_timeout(120, provider, (image_base64, AI_API_KEY, AI_MODEL, AI_BASE_URL, WEBCAM_LOCATION, WEBCAM_VIEW_DESCRIPTION, temp, temp_unit, last_description_s))
         redis.set('webcam_intelligence_last', description)
-        logging.info(f'AI wrote a {len(description)} character summary: "{description}"')
+        d = description.replace('\n', ' ')
+        logging.info(f'AI wrote a {len(description)} character summary: "{d}"')
 
         redis.set(REDIS_DATA_KEY, description)
 
