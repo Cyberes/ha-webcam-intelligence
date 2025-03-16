@@ -44,7 +44,7 @@ def main():
         resized_image = resize_image(frame)
         image_base64 = encode_image_to_base64(resized_image)
 
-        logging.info('Sending image to the AI for description...')
+        logging.info(f'Sending image to {"Anthropic" if "claude" in AI_MODEL else "OpenAI"} for description...')
         last_description: bytes = redis.get('webcam_intelligence_last')
         last_description_s = None
         if last_description:
@@ -54,7 +54,6 @@ def main():
             provider = describe_via_anthropic
         else:
             provider = describe_via_openai
-        logging.info(f'Using {"Anthropic" if "claude" in AI_MODEL else "OpenAI"}')
 
         description = func_timeout(120, provider, (image_base64, AI_API_KEY, AI_MODEL, AI_BASE_URL, WEBCAM_LOCATION, WEBCAM_VIEW_DESCRIPTION, temp, temp_unit, last_description_s))
         redis.set('webcam_intelligence_last', description)
