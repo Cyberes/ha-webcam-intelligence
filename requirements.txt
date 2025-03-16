@@ -8,3 +8,4 @@ paho-mqtt==1.5.0
 func-timeout==4.3.5
 brotli==1.1.0
 base91==1.0.1
+openai==1.66.3

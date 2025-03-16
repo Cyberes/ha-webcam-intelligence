@@ -2,7 +2,7 @@
 
 _Use AI vision to summarize current weather conditions from a webcam._
 
-This uses a webcam to generate a current weather conditions summary via the Anthropic API.
+This uses a webcam to generate a current weather conditions summary via AI. Supports OpenAI and Anthropic.
 
 The entity's state is the generated summary compressed via Brotli and encoded in Base91 in order to keep the length of
 the state under the maximum of 255 characters.
@@ -13,8 +13,8 @@ the state under the maximum of 255 characters.
 2. Configure your environment variables at `/etc/secrets/webcam-intelligence`. Here's an example:
    ```
    HLS_STREAM="http://192.168.10.106:8888/webcam/index.m3u8"
-   ANTHROPIC_MODEL="claude-3-7-sonnet-latest"
-   ANTHROPIC_API_KEY="xxx"
+   AI_MODEL="claude-3-7-sonnet-latest"
+   AI_API_KEY="xxx"
    WEBCAM_LOCATION="Anytown, Texas"
    WEBCAM_VIEW_DESCRIPTION="Webcam is above a small meadow and scrub oak trees. View is southerly and looks out to the Whatever Range. On a clear day, the mountains are visible all the way to Bob Joe Mountain."
    HA_ACCESS_TOKEN="xxx"
@@ -33,6 +33,8 @@ the state under the maximum of 255 characters.
      json_attributes_topic: "webcam-intelligence/webcam-intelligent-summary/attributes"
    ```
 5. Restart Home Assistant
+
+The correct provider is chosen based on the model name. OpenAI's `o1` is recommended.
 
 ### Dashboard Card
 
