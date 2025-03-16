@@ -35,7 +35,7 @@ the state under the maximum of 255 characters.
 5. Restart Home Assistant
 
 The correct provider is chosen based on the model name. OpenAI's `o1` and `o3-mini` produce very dry and brief
-reports. Claude writes longer and more detailed reports. Choose the style you want.
+reports. Claude writes slightly longer, more detailed, and "creative" reports. Choose the style you want.
 
 ### Dashboard Card
 
@@ -48,9 +48,24 @@ content: |-
 
 ### Example Summary
 
-> Overcast conditions prevail with a low, uniform cloud deck obscuring the Whatever Range and distant mountain
-> views.<br>Visibility is significantly reduced with a gray, hazy appearance suggesting possible light precipitation or
-> fog in the area.<br>No active precipitation is currently visible in the immediate foreground, though patches of
-> melting
-> snow remain visible in scattered areas of the landscape.<br>The cloud ceiling appears quite low, with complete stratus
-> coverage creating diffuse lighting across the scene.
+#### Claude 3.7 Sonnet
+
+> Twilight conditions with a prominent stratocumulus cloud deck visible across the sky.<br>
+> Cloud formation appears to be developing with some vertical structure, particularly over the mountain range.<br>
+> Visibility is good with the Whatever Range clearly defined against the darkening sky.<br>
+> City lights are becoming visible in the valley below.<br>
+> No active precipitation observed in the immediate area.
+
+#### o3-mini
+
+> Twilight persists over Anytown with a broad stratocumulus layer and moderate vertical cloud development above the
+> mountains.<br>
+> The Whatever Range stands clearly against the darkening horizon while city lights emerge in the valley below.<br>
+> No active precipitation or significant snow accumulation is evident.
+
+#### o1
+
+> Twilight conditions remain with a broad stratocumulus layer stretching across the sky.<br>
+> Cloud formation exhibits moderate vertical development over the mountains, and the Whatever Range is clearly visible
+> against the darkening horizon.<br>
+> City lights are discernible in the valley below, with no new precipitation or snow accumulation evident.
