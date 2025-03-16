@@ -17,5 +17,5 @@ jobs:
         id: mirror
         uses: bridgelightcloud/github-mirror-action@v3
         with:
-          origin: ''
+          origin: 'https://git.evulid.cc/cyberes/ha-webcam-intelligence.git'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
