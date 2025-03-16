@@ -34,7 +34,8 @@ the state under the maximum of 255 characters.
    ```
 5. Restart Home Assistant
 
-The correct provider is chosen based on the model name. OpenAI's `o1` is the best but Claude Sonnet is good.
+The correct provider is chosen based on the model name. OpenAI's `o1` and `o3-mini` produce very dry and brief
+reports. Claude writes longer and more detailed reports. Choose the style you want.
 
 ### Dashboard Card
 
