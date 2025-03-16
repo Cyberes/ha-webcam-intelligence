@@ -34,7 +34,7 @@ the state under the maximum of 255 characters.
    ```
 5. Restart Home Assistant
 
-The correct provider is chosen based on the model name. OpenAI's `o1` is recommended.
+The correct provider is chosen based on the model name. OpenAI's `o1` or `o3-mini` is recommended.
 
 ### Dashboard Card
 
