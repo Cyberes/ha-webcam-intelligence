@@ -7,6 +7,7 @@ def describe_via_openai(image_base64, api_key, model, base_url, location, view_d
     client = OpenAI(api_key=api_key, base_url=base_url)
     response = client.responses.create(
         model=model,
+        timeout=60,
         input=[
             {
                 "role": "user",

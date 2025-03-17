@@ -28,12 +28,14 @@ def fetch_latest_frame(hls_url, capture_duration=2):
     return frame
 
 
-def resize_image(frame) -> Image:
+def resize_image(pil_image: Image) -> Image:
+    return pil_image.resize((1092, 1092), Image.Resampling.LANCZOS)
+
+
+def cv2_to_pil(frame):
     # Convert OpenCV BGR image to RGB
     image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    pil_image = Image.fromarray(image)
-    resized_image = pil_image.resize((1092, 1092), Image.Resampling.LANCZOS)
-    return resized_image
+    return Image.fromarray(image)
 
 
 def encode_image_to_base64(image):
