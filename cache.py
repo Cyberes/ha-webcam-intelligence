@@ -37,7 +37,7 @@ def main():
     redis = Redis(db=REDIS_DB)
 
     # To test your prompt without any history, uncomment this.
-    redis.delete('webcam_intelligence_last')
+    # redis.delete('webcam_intelligence_last')
 
     while True:
         logging.info('Fetching temperature data...')
