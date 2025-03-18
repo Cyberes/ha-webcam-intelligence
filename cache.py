@@ -49,7 +49,7 @@ def main():
 
         if 'claude' in AI_MODEL:
             provider = describe_via_anthropic
-            pil_image = resize_image(pil_image)
+            # pil_image = resize_image(pil_image)
         else:
             provider = describe_via_openai
 
